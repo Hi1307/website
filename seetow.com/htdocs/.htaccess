@@ -1,0 +1,30 @@
+php_value display_errors On
+php_flag magic_quotes 1
+php_flag magic_quotes_gpc 1
+php_value mbstring.http_input auto
+php_value date.timezone Asia/Singapore
+ErrorDocument 404     /en/404/index.php
+ErrorDocument 403     "<h1>403 Forbidden</h1><p>You are not allowed to access this file.</p>"
+ErrorDocument 410     "<h1>Gone</h1><p>The website is being upgraded. Please wait.</p>"
+RewriteEngine on
+RewriteRule ^/?en-sg /en/tos/$1 [R,L]
+RewriteRule ^/?en-sg/(.*)$ /en/tos/$1 [R,L]
+RewriteRule ^/?blog/(.*)$ /en/new/$1 [R,L]
+RewriteRule ^/?dinosaur/(.*)$ /en/dinosaur/$1 [R,L]
+RewriteRule ^/?changelog/(.*)$ /en/changelog/$1 [R,L]
+RewriteRule ^/?mobile/(.*)$ /en/mobile/$1 [R,L]
+RewriteRule ^/?instagram/(.*)$ /en/instagram/$1 [R,L]
+RewriteRule ^/?instagram /en/instagram/$1 [R,L]
+RewriteRule ^/?twitter/(.*)$ /en/twitter/$1 [R,L]
+RewriteRule ^/?welcome/(.*)$ /en/welcome/$1 [R,L]
+RewriteRule ^/?welcome /en/welcome/$1 [R,L]
+RewriteRule ^/?twitter /en/twitter/$1 [R,L]
+RewriteRule ^/?mobile /en/mobile/$1 [R,L]
+RewriteRule ^/?changelog /en/changelog/$1 [R,L]
+RewriteRule ^/?blog /en/blog/$1 [R,L]
+<Limit GET HEAD POST>
+order deny,allow
+deny from 1.1.1.1
+allow from 182.55.140.59
+</Limit>
+php_flag display_errors on
